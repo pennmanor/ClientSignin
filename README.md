@@ -9,6 +9,6 @@ Client side sign in for the Student Help Desk
 
 ##Configure
 
-- device - rfid serial name
+- device - path to rfid serial name
 - url - url to http://STUDENT-HELP-DESK-SITE/api/toggle.php
 - key - valid API key
