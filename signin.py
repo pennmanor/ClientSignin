@@ -7,7 +7,7 @@ device= ""
 url= ""
 key = ""
 
-print "Seting up serial device..."
+print "Setting up serial device..."
 serial = serial.Serial(device, 9600)
 helpers = []
 send_data = {
@@ -17,7 +17,7 @@ send = {
     "data": "",
     "key" : key
 }
-print "Reading files..."
+print "Reading file..."
 f = open("helpers.txt", "r+")
 for line in f:
     line = line.replace("\n", "")
