@@ -3,10 +3,11 @@ import serial
 import requests
 import json
 
-serial = serial.Serial("/dev/tty.usbserial-A101NC8U", 9600)
-url= "http://127.0.0.1/OnetoOne/api/toggle.php"
-key = "1B7D5575BAD62F6BA3C6D1163A786"
+device= ""
+url= ""
+key = ""
 
+serial = serial.Serial(device, 9600)
 helpers = []
 send_data = {
     "id": 0
@@ -15,13 +16,14 @@ send = {
     "data": "",
     "key" : key
 }
-
+print "Reading files"
 f = open("helpers.txt", "r+")
 for line in f:
     line = line.replace("\n", "")
     data = line.split(", ")
     helpers.append([data[0], data[1]])
 f.close()
+print "Done. Ready to scan."
 while True:
     if serial.inWaiting() > 0:
         read_result = serial.read(12)
@@ -40,3 +42,6 @@ while True:
         print("Please wait for 1 second...");
         time.sleep(1)
         serial.flushInput() # ignore errors, no data
+    else:
+        time.sleep(0.1)
+
